@@ -25,9 +25,9 @@ class MainViewModel(application: Application): AndroidViewModel(application)
     private var messages:MutableLiveData<ArrayList<Message>> = MutableLiveData(ArrayList())
 
     // Variables for encryption
-    private var cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
-    private lateinit var keySpec:SecretKeySpec
-    private lateinit var ivSpec:IvParameterSpec
+    //private var cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
+    //private lateinit var keySpec:SecretKeySpec
+    //private lateinit var ivSpec:IvParameterSpec
 
 
     // init a Client
@@ -48,10 +48,10 @@ class MainViewModel(application: Application): AndroidViewModel(application)
             override fun messageArrived(topic: String?, message: MqttMessage?) {
 
                 //Decryption
-                val temp = message?.payload
-                cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec)
-                val decrypted = cipher.doFinal(temp)
-                message?.payload = decrypted
+                //val temp = message?.payload
+                //cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec)
+                //val decrypted = cipher.doFinal(temp)
+                //message?.payload = decrypted
 
                 addNewMessageToList(message.toString(),topic!!, getStringFromDate())
             }
@@ -86,8 +86,9 @@ class MainViewModel(application: Application): AndroidViewModel(application)
             e.printStackTrace()
             callback(false)
         }
-
-        initCryptography(pwd)
+            
+        //Iniziallizzazione della crittografia    
+        //initCryptography(pwd)
 
     }
 
@@ -139,11 +140,11 @@ class MainViewModel(application: Application): AndroidViewModel(application)
             val message = MqttMessage()
 
             //No payload encryption
-            //message.payload = msg.toByteArray()
+            message.payload = msg.toByteArray()
 
             //Payload encryption
-            cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec)
-            message.payload = cipher.doFinal(msg.toByteArray())
+            //cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec)
+            //message.payload = cipher.doFinal(msg.toByteArray())
 
             message.qos = qos
             message.isRetained = false
