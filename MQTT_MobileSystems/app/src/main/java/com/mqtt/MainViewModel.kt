@@ -25,9 +25,9 @@ class MainViewModel(application: Application): AndroidViewModel(application)
     private var messages:MutableLiveData<ArrayList<Message>> = MutableLiveData(ArrayList())
 
     // Variables for encryption
-    //private var cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
-    //private lateinit var keySpec:SecretKeySpec
-    //private lateinit var ivSpec:IvParameterSpec
+    private var cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
+    private lateinit var keySpec:SecretKeySpec
+    private lateinit var ivSpec:IvParameterSpec
 
 
     // init a Client
