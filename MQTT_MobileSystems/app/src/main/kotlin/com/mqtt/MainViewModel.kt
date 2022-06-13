@@ -17,6 +17,7 @@ import javax.crypto.spec.SecretKeySpec
 class MainViewModel(application: Application): AndroidViewModel(application)
 {
     private val context: Context = application.applicationContext
+    
     // MQTT :
     private lateinit var mqttAndroidClient:MqttAndroidClient
 
