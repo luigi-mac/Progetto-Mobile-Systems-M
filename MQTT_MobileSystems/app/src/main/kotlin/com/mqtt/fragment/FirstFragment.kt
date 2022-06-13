@@ -14,14 +14,13 @@ class FirstFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity(),defaultViewModelProviderFactory).get(
@@ -40,8 +39,8 @@ class FirstFragment : Fragment() {
 
     }
 
-    private fun connectToBroker()
-    {
+    private fun connectToBroker() {
+        
         showViews(first_pb, first_tv_pb)
         blockInputs()
 
@@ -78,8 +77,8 @@ class FirstFragment : Fragment() {
     }
 
 
-    private fun blockInputs()
-    {
+    private fun blockInputs() {
+        
         first_et_pwd.isEnabled = false
         first_et_name.isEnabled = false
         first_et_port.isEnabled = false
@@ -88,8 +87,8 @@ class FirstFragment : Fragment() {
 
     }
 
-    private fun unblockInputs()
-    {
+    private fun unblockInputs() {
+        
         first_et_pwd.isEnabled = true
         first_et_name.isEnabled = true
         first_et_port.isEnabled = true
@@ -98,8 +97,8 @@ class FirstFragment : Fragment() {
     }
 
 
-    private fun checkInputs():Boolean
-    {
+    private fun checkInputs():Boolean {
+        
         if(first_et_ip.text.isNullOrEmpty())
             return false
         if(first_et_port.text.isNullOrEmpty())
@@ -112,15 +111,15 @@ class FirstFragment : Fragment() {
     }
 
 
-    private fun hideViews(vararg views: View)
-    {
+    private fun hideViews(vararg views: View) {
+        
         for (view in views) {
             view.visibility = View.GONE
         }
     }
 
-    private fun showViews(vararg views: View)
-    {
+    private fun showViews(vararg views: View) {
+        
         for (view in views) {
             view.visibility = View.VISIBLE
         }
