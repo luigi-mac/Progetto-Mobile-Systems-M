@@ -24,21 +24,20 @@ class SecondFragment : Fragment() {
     private lateinit var rv:RecyclerView
     private lateinit var adapter: MessageAdapter
 
-    override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        
         return inflater.inflate(R.layout.fragment_second, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(requireActivity(),defaultViewModelProviderFactory).get(
             MainViewModel::class.java)
-
         initRecyclerView()
+        
         second_btn_save.setOnClickListener {
+            
             if (!second_et_topic.text.isNullOrEmpty()) {
                 viewModel.subscribe(second_et_topic.text.toString()) { status->
                     if(status)
@@ -65,12 +64,9 @@ class SecondFragment : Fragment() {
             adapter.updateContent(messages)
             rv.scrollToPosition(0)
         })
-
-
     }
 
-    private fun initRecyclerView()
-    {
+    private fun initRecyclerView() {
 
         rv = second_rv
         adapter = MessageAdapter(ArrayList())
@@ -80,5 +76,4 @@ class SecondFragment : Fragment() {
         rv.adapter = adapter
 
     }
-
 }
