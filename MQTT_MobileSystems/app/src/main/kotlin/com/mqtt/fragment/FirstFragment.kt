@@ -34,9 +34,7 @@ class FirstFragment : Fragment() {
             } else {
                 printToast(requireContext(), "Si prega di compilare tutti i campi...")
             }
-
         }
-
     }
 
     private fun connectToBroker() {
@@ -73,7 +71,6 @@ class FirstFragment : Fragment() {
             hideViews(first_pb,first_tv_pb)
 
         }
-
     }
 
 
