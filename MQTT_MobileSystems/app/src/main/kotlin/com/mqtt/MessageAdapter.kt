@@ -32,7 +32,6 @@ class MessageAdapter(var content:ArrayList<Message>):RecyclerView.Adapter<Messag
         holder.tvMsg.text = temp.msg
         holder.tvTopic.text = temp.topic
         holder.tvTime.text = temp.time
-
     }
 
     override fun getItemCount(): Int {
