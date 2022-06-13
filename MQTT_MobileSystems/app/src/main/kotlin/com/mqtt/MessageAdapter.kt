@@ -15,8 +15,6 @@ class MessageAdapter(var content:ArrayList<Message>):RecyclerView.Adapter<Messag
         notifyItemInserted(0)
     }
 
-
-
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {
         var tvMsg: TextView = itemView.findViewById(R.id.item_msg)
